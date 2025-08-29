@@ -2,7 +2,7 @@
 
 ---
 
-# Project: Emergency Service
+# Project: Emergency Hotline
 
 ---
 
@@ -44,7 +44,7 @@ document.querySelectorAll('.myClass'); // all elements with class
 
 ## 2. How do you **create and insert a new element into the DOM**?
 
-###Steps:
+### Steps:
 
 - Create a new element with document.createElement.
 
@@ -68,13 +68,13 @@ document.body.appendChild(p); // 3. Insert into the body
 
 ### How it works:
 
-- You click a <button> inside a <div> inside the <body>.
+- You click a 'button' inside a 'div' inside the 'body'.
 
-- The click event fires first on the <button> (the target).
+- The click event fires first on the 'button' (the target).
 
-- Then it fires on the <div>.
+- Then it fires on the 'div'.
 
-- Then it fires on the <body>.
+- Then it fires on the 'body'.
 
 And so on, all the way up to the document object. It's the reason why an event listener on a parent element can detect events that happened on its children.
 
@@ -98,7 +98,7 @@ And so on, all the way up to the document object. It's the reason why an event l
 
 - Works automatically for child elements added to the DOM in the future (no need to re-attach listeners).
 
-- Perfect for handling clicks on any item in a long list (<ul> / <ol>).
+- Perfect for handling clicks on any item in a long list (ul / li).
 
 ```bash
 document.getElementById("parent").addEventListener("click", function(e) {
