@@ -63,10 +63,37 @@ for (const btn of callBtns) {
   });
 }
 
-// Call history clear btn functionality
+// Call history clear btn functionality ----------------------------------------------------------
 
 const clearBtn = document.getElementById("clear-history-btn");
 
 clearBtn.addEventListener("click", function () {
   callHistory.innerText = "";
 });
+
+// Copy btn (copy count + copy the number) functionality --------------------------------------------
+
+const copyCount = document.getElementById("copy-count");
+
+const copyBtns = document.getElementsByClassName("copy-btn");
+
+let copyCounts = 0;
+
+for (const copyBtn of copyBtns) {
+  copyBtn.addEventListener("click", function () {
+    // count the copy
+    copyCounts++;
+    copyCount.innerText = copyCounts;
+
+    // find the card and hotline number
+    const serviceCard = copyBtn.parentElement.parentElement;
+    const serviceNumber =
+      serviceCard.querySelector(".service-number").innerText;
+
+    // copy the hotline number to clipboard
+    navigator.clipboard.writeText(serviceNumber);
+
+    // alert a msg
+    alert(`The number has been copied: ${serviceNumber}`);
+  });
+}
