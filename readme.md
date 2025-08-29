@@ -1,20 +1,14 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT-005
-
-### 📅 Deadline For 60 marks: 29th August, 2025 (11:59 pm ⏱️)
-
-### 📅 No Deadline For 50 marks
-
-### 📅 Deadline For 30 marks: Any time after 29th August.
+## ( সহজ সরল সিম্পল ) ASSIGNMENT-005
 
 ---
 
-#Project: Emergency Service
+# Project: Emergency Service
 
 ---
 
-## 6. Answer the following questions clearly:
+### Answers the following questions :
 
-1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
+## 1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
 
 ### getElementById()
 
@@ -48,33 +42,103 @@ document.querySelector('.myClass'); // first element with class
 document.querySelectorAll('.myClass'); // all elements with class
 ```
 
+## 2. How do you **create and insert a new element into the DOM**?
 
+###Steps:
 
-2. How do you **create and insert a new element into the DOM**?
-3. What is **Event Bubbling** and how does it work?
-4. What is **Event Delegation** in JavaScript? Why is it useful?
-5. What is the difference between **preventDefault() and stopPropagation()** methods?
+- Create a new element with document.createElement.
 
----
+- Add content/text with textContent or innerHTML.
 
-💡Hint: You can ask for Help from `ChatGPT` Mamma . Just copy the below prompt , generate answer. use it with your own way.
-
-```bash
-I have a card with some text and a button inside it. I want that when a user clicks the button, some specific text from the card is copied to the clipboard using JavaScript. Please provide the code and explain it step by step.
-```
-
-- After clicking on the **Call button**, the **exact time of the call** will be shown in the Call History section (3 Marks)
-
-💡Hint: Search Google with that below question
+- Insert it into the DOM with appendChild or insertBefore.
 
 ```bash
-How to get current local time in js
+const p = document.createElement('p'); // 1. Create a new paragraph
+
+p.textContent = "Hello, I am new here!"; // 2. Add text
+
+document.body.appendChild(p); // 3. Insert into the body
 ```
+
+## 3. What is **Event Bubbling** and how does it work?
+
+### Event Bubbling
+
+- Event Bubbling means when you click an element, the event first runs on that element, then moves upward to its parent, grandparent, all the way to document.
+
+### How it works:
+
+- You click a <button> inside a <div> inside the <body>.
+
+- The click event fires first on the <button> (the target).
+
+- Then it fires on the <div>.
+
+- Then it fires on the <body>.
+
+And so on, all the way up to the document object. It's the reason why an event listener on a parent element can detect events that happened on its children.
+
+## 4. What is **Event Delegation** in JavaScript? Why is it useful?
+
+### Event Delegation
+
+- Event Delegation means instead of adding a click handler to each child, you add it to the parent use event bubbling to catch clicks.
+
+### How it works:
+
+- Attach the listener to a stable parent element.
+
+- When the event bubbles up to the parent, check the event.target property to see which child element actually triggered the event.
+
+- Perform an action based on which child was clicked.
+
+### Why it's useful:
+
+- Uses only one listener instead of hundreds, saving memory.
+
+- Works automatically for child elements added to the DOM in the future (no need to re-attach listeners).
+
+- Perfect for handling clicks on any item in a long list (<ul> / <ol>).
+
+```bash
+document.getElementById("parent").addEventListener("click", function(e) {
+  if (e.target.tagName === "LI") {
+    alert("Button clicked: " + e.target.innerText);
+  }
+});
+
+```
+
+## 5. What is the difference between **preventDefault() and stopPropagation()** methods?
+
+### preventDefault()
+
+- preventDefault() stops the default action of an element like stop a form from submitting.
+
+```bash
+form.addEventListener("submit", function(e) {
+  e.preventDefault(); // stops form from reloading page
+});
+
+```
+
+### stopPropagation()
+
+- stopPropagation() stops the event from bubbling up to parent elements. Only run child’s click, not parent’s.
+
+```bash
+child.addEventListener("click", function(e) {
+  e.stopPropagation(); // stops event from reaching parent
+});
+
+```
+
+In short preventDefault() stop browser’s default behavior and stopPropagation() stop event from going up (bubbling).
 
 ---
 
 ## ⚙️ Technology Stack
 
 - HTML
-- CSS ( Vanilla , Tailwind CSS , DaisyUI , Others - wheatever you like )
-- JavaScript ( Vanilla only. No Framework / Library Allowed )
+- CSS ( Vanilla , Tailwind CSS , DaisyUI)
+- JavaScript ( Vanilla only. No Framework / Library Used )
