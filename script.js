@@ -22,6 +22,7 @@ for (const heart of hearts) {
 const coinCount = document.getElementById("coin-count");
 let coins = parseInt(coinCount.innerText);
 const callBtns = document.getElementsByClassName("call-btn");
+const callHistory = document.getElementById("call-history");
 
 for (const btn of callBtns) {
   btn.addEventListener("click", function () {
@@ -44,7 +45,6 @@ for (const btn of callBtns) {
     alert(`📞 Calling ${serviceName} ${serviceNumber}`);
 
     // add to call history
-    const callHistory = document.getElementById("call-history");
     let currentTime = new Date().toLocaleTimeString();
 
     const div = document.createElement("div");
@@ -62,3 +62,11 @@ for (const btn of callBtns) {
     callHistory.appendChild(div);
   });
 }
+
+// Call history clear btn functionality
+
+const clearBtn = document.getElementById("clear-history-btn");
+
+clearBtn.addEventListener("click", function () {
+  callHistory.innerText = "";
+});
